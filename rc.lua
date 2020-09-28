@@ -11,7 +11,8 @@
 --local rc = "color.orange.rc-orange"
 --local rc = "color.green.rc-green"
 
-local rc = "shade.ruby.rc-ruby"
+--local rc = "shade.ruby.rc-ruby"
 --local rc = "shade.steel.rc-steel"
+local rc = "7932.rc-7932"
 
 require(rc)
