@@ -181,25 +181,68 @@ function hotkeys:init(args)
 	------------------------------------------------------------
 	local menu_keys_move = {
 		{
-			{ env.mod }, "j", redflat.menu.action.down,
+			{ }, "j", redflat.menu.action.down,
 			{ description = "Select next item", group = "Navigation" }
 		},
 		{
-			{ env.mod }, "k", redflat.menu.action.up,
+			{ }, "k", redflat.menu.action.up,
 			{ description = "Select previous item", group = "Navigation" }
 		},
 		{
-			{ env.mod }, "h", redflat.menu.action.back,
+			{ }, "h", redflat.menu.action.back,
 			{ description = "Go back", group = "Navigation" }
 		},
 		{
-			{ env.mod }, "l", redflat.menu.action.enter,
+			{ }, "l", redflat.menu.action.enter,
 			{ description = "Open submenu", group = "Navigation" }
 		},
 	}
 
 	-- redflat.menu:set_keys(awful.util.table.join(redflat.menu.keys.move, menu_keys_move), "move")
 	redflat.menu:set_keys(menu_keys_move, "move")
+
+	-- FloatControl widget
+	------------------------------------------------------------
+	local float_keys_control= {
+		{
+			{ "Mod4" }, "c", function() redflat.float.control:center() end,
+			{ description = "Put window at the center", group = "Window control" }
+		},
+		{
+			{ "Mod4" }, "q", function() redflat.float.control:resize() end,
+			{ description = "Increase window size", group = "Window control" }
+		},
+		{
+			{ "Mod4" }, "a", function() redflat.float.control:resize(true) end,
+			{ description = "Decrease window size", group = "Window control" }
+		},
+		{
+			{ "Mod4" }, "l", function() redflat.float.control:move("right") end,
+			{ description = "Move window to right", group = "Window control" }
+		},
+		{
+			{ "Mod4" }, "h", function() redflat.float.control:move("left") end,
+			{ description = "Move window to left", group = "Window control" }
+		},
+		{
+			{ "Mod4" }, "j", function() redflat.float.control:move("bottom") end,
+			{ description = "Move window to bottom", group = "Window control" }
+		},
+		{
+			{ "Mod4" }, "k", function() redflat.float.control:move("top") end,
+			{ description = "Move window to top", group = "Window control" }
+		},
+		{
+			{ "Mod4" }, "n", function() redflat.float.control:switch_resize_mode() end,
+			{ description = "Switch moving/resizing mode", group = "Mode" }
+		},
+		{
+			{ "Mod4" }, "s", function() redflat.float.control:switch_onscreen() end,
+			{ description = "Switch off screen check", group = "Mode" }
+		},
+	}
+
+	redflat.float.control:set_keys(float_keys_control, "control")
 
 	-- Appswitcher widget
 	------------------------------------------------------------
@@ -599,7 +642,7 @@ function hotkeys:init(args)
 			{ description = "[Hold] Tiling window control mode", group = "Window control" }
 		},
 		{
-			{ env.mod }, "z", function() redflat.float.control:show() end,
+			{ env.mod }, "i", function() redflat.float.control:show() end,
 			{ description = "[Hold] Floating window control mode", group = "Window control" }
 		},
 
@@ -787,7 +830,7 @@ function hotkeys:init(args)
 			{ description = "Toggle fullscreen", group = "Client keys" }
 		},
 		{
-			{ env.mod }, "F4", function(c) c:kill() end,
+			{ env.mod, "Shift"}, "c", function(c) c:kill() end,
 			{ description = "Close", group = "Client keys" }
 		},
 		{

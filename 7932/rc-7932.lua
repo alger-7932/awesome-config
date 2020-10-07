@@ -27,7 +27,7 @@ require("7932.ercheck-config") -- load file with error handling
 -- Setup theme and environment vars
 -----------------------------------------------------------------------------------------------------------------------
 local env = require("7932.env-config") -- load file with environment
-env:init({ terminal = "alacritty" })
+env:init({ terminal = "alacritty", theme = "colored", fm = "ranger" })
 
 
 -- Layouts setup
@@ -78,7 +78,8 @@ taglist.buttons = awful.util.table.join(
 -- Textclock widget
 --------------------------------------------------------------------------------
 local textclock = {}
-textclock.widget = redflat.widget.textclock({ timeformat = "%H:%M", dateformat = "%b  %d  %a" })
+-- textclock.widget = redflat.widget.textclock({ timeformat = "%H:%M", dateformat = "%b  %d  %a" })
+textclock.widget = redflat.widget.textclock({ timeformat = "%A %B %d %Y %H:%M:%S %Z", dateformat = "%b %d %Y %a", timeout = 1 })
 
 -- Layoutbox configure
 --------------------------------------------------------------------------------
